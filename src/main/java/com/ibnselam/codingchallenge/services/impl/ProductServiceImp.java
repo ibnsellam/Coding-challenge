@@ -11,12 +11,12 @@ import org.springframework.stereotype.Service;
 import com.ibnselam.codingchallenge.model.Product;
 import com.ibnselam.codingchallenge.model.exceptionsHandler.ProductNotFoundException;
 import com.ibnselam.codingchallenge.model.repository.ProductRepository;
-import com.ibnselam.codingchallenge.services.ProductServiceBridge;
+import com.ibnselam.codingchallenge.services.ProductService;
 
 import ch.qos.logback.core.helpers.ThrowableToStringArray;
 
 @Service
-public class ProductServiceImp implements ProductServiceBridge{
+public class ProductServiceImp implements ProductService{
 
 	@Autowired
 	private ProductRepository productRepository;

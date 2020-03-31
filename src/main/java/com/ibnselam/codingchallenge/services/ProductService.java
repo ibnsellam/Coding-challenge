@@ -4,7 +4,7 @@ import java.util.List;
 
 import com.ibnselam.codingchallenge.model.Product;
 
-public interface ProductServiceBridge {
+public interface ProductService {
 
 	public List<Product> retreiveAll();
 	public Product retrieveById(long id);
