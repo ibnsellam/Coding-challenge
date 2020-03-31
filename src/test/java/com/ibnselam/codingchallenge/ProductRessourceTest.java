@@ -8,7 +8,8 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.context.junit4.SpringRunner;
 import com.ibnselam.codingchallenge.model.Product;
 import com.ibnselam.codingchallenge.model.repository.ProductRepository;
-import com.ibnselam.codingchallenge.services.ProductService;
+import com.ibnselam.codingchallenge.services.impl.ProductServiceImp;
+
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -24,7 +25,7 @@ import static org.mockito.Mockito.times;
 public class ProductRessourceTest {
 	
     @Autowired
-    private ProductService productService;
+    private ProductServiceImp productService;
     
     @MockBean
     private ProductRepository productRepository;

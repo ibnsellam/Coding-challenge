@@ -18,14 +18,14 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.ibnselam.codingchallenge.model.Product;
-import com.ibnselam.codingchallenge.services.ProductService;
+import com.ibnselam.codingchallenge.services.impl.ProductServiceImp;
 
 @RestController
 @RequestMapping("/api/v1")
 public class ProductResource {
 	
 	@Autowired
-	private ProductService productService;
+	private ProductServiceImp productService;
 	
 	//Find all products
 	@GetMapping("/products")

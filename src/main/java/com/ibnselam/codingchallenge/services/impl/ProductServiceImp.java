@@ -1,4 +1,4 @@
-package com.ibnselam.codingchallenge.services;
+package com.ibnselam.codingchallenge.services.impl;
 
 import java.util.List;
 import java.util.Optional;
@@ -11,19 +11,22 @@ import org.springframework.stereotype.Service;
 import com.ibnselam.codingchallenge.model.Product;
 import com.ibnselam.codingchallenge.model.exceptionsHandler.ProductNotFoundException;
 import com.ibnselam.codingchallenge.model.repository.ProductRepository;
+import com.ibnselam.codingchallenge.services.ProductServiceBridge;
 
 import ch.qos.logback.core.helpers.ThrowableToStringArray;
 
 @Service
-public class ProductService {
+public class ProductServiceImp implements ProductServiceBridge{
 
 	@Autowired
 	private ProductRepository productRepository;
 		
+	@Override
 	public List<Product> retreiveAll() {
 		return (List<Product>) productRepository.findAll();	
 	}
 	
+	@Override
 	public Product retrieveById(long id) {
 		Optional<Product> product = productRepository.findById(id);
 
@@ -34,16 +37,19 @@ public class ProductService {
 		return product.get();
 	}
 	
+	@Override
 	 public Product create(Product newProduct) {
 		 return productRepository.save(newProduct);
 	   }
 	 
-	 public void delete(Long id) {
+	@Override
+	 public void delete(long id) {
 	    	productRepository.deleteById(id);
 	    
 	  }
 	 
-	 public Product update(Product newProductDetails, Long id) {
+	@Override
+	 public Product update(Product newProductDetails, long id) {
 		 
 		 return productRepository.findById(id).map(product -> {
 			 product.setTitle(newProductDetails.getTitle());
